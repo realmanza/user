@@ -15,8 +15,9 @@ public class User {
     @SequenceGenerator(name = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     private Long id;
-    @NotBlank(message = "El nombre de usuario es requerido")
+    @NotBlank(message = "El nombre es requerido")
     private String username;
+    @NotBlank(message = "La contraseña es requerido")
     private String password;
     private String email;
     @Column(name = "created_at", columnDefinition = "TIMESTAMP", nullable = false, updatable = false)
@@ -26,7 +27,7 @@ public class User {
     private UserDetail userDetail;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UserRol> userRoles;
+    private Set<UserRol> userRoles;
 
     public User() {
     }
@@ -87,11 +88,11 @@ public class User {
         this.userDetail = userDetail;
     }
 
-    public List<UserRol> getUserRoles() {
+    public Set<UserRol> getUserRoles() {
         return userRoles;
     }
 
-    public void setUserRoles(List<UserRol> userRoles) {
+    public void setUserRoles(Set<UserRol> userRoles) {
         this.userRoles = userRoles;
     }
 }

@@ -26,9 +26,8 @@ public class UserRol {
     public UserRol() {
     }
 
-    public UserRol(boolean active, LocalDateTime createdAt, User user, Rol rol) {
+    public UserRol(boolean active, User user, Rol rol) {
         this.active = active;
-        this.createdAt = createdAt;
         this.user = user;
         this.rol = rol;
     }
@@ -84,4 +83,3 @@ public class UserRol {
                 '}';
     }
 }
-
