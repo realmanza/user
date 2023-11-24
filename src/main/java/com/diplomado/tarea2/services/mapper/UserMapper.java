@@ -49,4 +49,3 @@ public class UserMapper implements CustomMapper<UserDTO, User> {
         return user;
     }
 }
-

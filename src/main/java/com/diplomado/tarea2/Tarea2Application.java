@@ -14,10 +14,12 @@ import java.util.Optional;
 public class Tarea2Application {
 
 	private static final Logger log = LoggerFactory.getLogger(Tarea2Application.class);
+
 	public static void main(String[] args) {
 		SpringApplication springApplication = new SpringApplication(Tarea2Application.class);
 		logApplicationStarup(springApplication.run(args).getEnvironment());
 	}
+
 	private static void logApplicationStarup(Environment env) {
 		String protocol = Optional.ofNullable(env.getProperty("server.ssl.key-store"))
 				.map(key -> "https")
@@ -52,4 +54,5 @@ public class Tarea2Application {
 				env.getActiveProfiles()
 		);
 	}
+
 }

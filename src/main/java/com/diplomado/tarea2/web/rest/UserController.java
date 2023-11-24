@@ -2,6 +2,7 @@ package com.diplomado.tarea2.web.rest;
 import com.diplomado.tarea2.dto.UserDTO;
 import com.diplomado.tarea2.dto.UserViewDTO;
 import com.diplomado.tarea2.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,7 @@ public class UserController {
 
     }
     @PostMapping
-    public ResponseEntity<UserDTO> create(@RequestBody final UserDTO userDTO) throws URISyntaxException {
+    public ResponseEntity<UserDTO> create(@Valid @RequestBody final UserDTO userDTO) throws URISyntaxException {
         /*if(user.getId()!=null){
             throw new IllegalArgumentException("El nuevo estudiante no puede tener un id.");
         }*/

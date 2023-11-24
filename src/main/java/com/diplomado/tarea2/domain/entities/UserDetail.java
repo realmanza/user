@@ -1,6 +1,6 @@
 package com.diplomado.tarea2.domain.entities;
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
 @Entity
 @Table(name="user_detail")
@@ -10,8 +10,10 @@ public class UserDetail {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_detail_sequence")
     private Long id;
     @Column(name="first_name")
+    @NotBlank(message = "El nombre es requerido")
     private String firstName;
     @Column(name="last_name")
+    @NotBlank(message = "El apellido es requerido")
     private String lastName;
     private Integer age;
     @Column(name="birth_day")
